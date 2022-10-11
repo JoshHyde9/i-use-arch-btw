@@ -43,14 +43,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
   height: 40px;
+  padding: 0 1rem;
   background-color: #1a161c;
   color: #fff;
 }
 .nav .nav-list {
   list-style-type: none;
   display: flex;
+}
+.nav .nav-list:nth-child(2) * {
+  padding: 0 0.1rem;
 }
 
 .display {

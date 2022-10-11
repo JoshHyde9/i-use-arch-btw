@@ -6,14 +6,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
   height: 40px;
+  padding: 0 1rem;
   background-color: $background-primary;
   color: #fff;
 
   .nav-list {
     list-style-type: none;
     display: flex;
+
+    &:nth-child(2) {
+      * {
+        padding: 0 0.1rem;
+      }
+    }
   }
 }
 
