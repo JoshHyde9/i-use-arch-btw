@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("../../assets/background.png");
+  background-image: url("../../assets/img/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,7 +52,10 @@ body {
   list-style-type: none;
   display: flex;
 }
-.nav .nav-list:nth-child(2) * {
+.nav .nav-list .wifi {
+  stroke: #fff;
+}
+.nav .nav-list:nth-child(2) *, .nav .nav-list:nth-child(3) * {
   padding: 0 0.1rem;
 }
 

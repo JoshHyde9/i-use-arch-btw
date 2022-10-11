@@ -15,7 +15,12 @@
     list-style-type: none;
     display: flex;
 
-    &:nth-child(2) {
+    .wifi {
+      stroke: #fff;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
       * {
         padding: 0 0.1rem;
       }

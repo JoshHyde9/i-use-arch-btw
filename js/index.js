@@ -52,3 +52,7 @@ const getDate = () => {
 
 createClock();
 getDate();
+
+const language = document.getElementById("language");
+const systemLang = navigator.language;
+language.innerText = systemLang;
