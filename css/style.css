@@ -137,6 +137,11 @@ body {
   height: 100%;
   width: 100%;
 }
+.desktop .window__body #editor {
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+}
 .desktop .window__body iframe {
   width: 100%;
   height: 98%;
@@ -158,7 +163,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 0 1rem;
   border: 1px solid rgb(127, 127, 127);
   border-radius: 20px;
@@ -167,6 +172,9 @@ body {
 .footer .dock .icon {
   transition: all ease-in-out 200ms;
   border-radius: 15px;
+}
+.footer .dock .icon--vs-code {
+  width: 20%;
 }
 .footer .dock .icon img {
   width: 60%;
