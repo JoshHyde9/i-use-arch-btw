@@ -1,3 +1,6 @@
+@use "./animations" as *;
+
 .show {
+  animation: up-down linear 300ms;
   opacity: 1 !important;
 }
