@@ -13,14 +13,24 @@ const date = document.getElementById("date");
 
 const createClock = () => {
   const today = new Date();
-  const hours = today.getHours();
-  const minutes = today.getMinutes();
+  let hours = today.getHours();
+  let minutes = today.getMinutes();
+
+  const addZeros = (number) => {
+    if (number < 10) {
+      number = `0${number}`;
+    }
+    return number;
+  };
+
+  hours = addZeros(hours);
+  minutes = addZeros(minutes);
 
   clock.innerText = `${hours}:${minutes}`;
 
   setTimeout(() => {
     createClock();
-  }, 1000);
+  }, 4000);
 };
 
 const monthNames = [
