@@ -8,3 +8,37 @@
 .hidden {
   display: none;
 }
+
+.rice-bg {
+  font-size: 1.25rem;
+  background-color: rgba($color: #642f53, $alpha: 0.5) !important;
+}
+
+.command {
+  color: #fff;
+
+  &::first-letter {
+    color: #26a269;
+  }
+}
+
+.ascii {
+  color: #1793d1;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+
+  input {
+    margin-left: 1rem;
+    outline: none;
+    flex-grow: 1;
+  }
+}

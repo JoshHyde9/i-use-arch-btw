@@ -45,6 +45,38 @@ body {
   display: none;
 }
 
+.rice-bg {
+  font-size: 1.25rem;
+  background-color: rgba(100, 47, 83, 0.5) !important;
+}
+
+.command {
+  color: #fff;
+}
+.command::first-letter {
+  color: #26a269;
+}
+
+.ascii {
+  color: #1793d1;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+.input-line input {
+  margin-left: 1rem;
+  outline: none;
+  flex-grow: 1;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
