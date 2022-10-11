@@ -1,1 +1,20 @@
 @use "./partials/global" as *;
+@use "./partials/util" as *;
+
+.display {
+  flex: 1;
+}
+
+.footer {
+  opacity: 0;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+
+  .dock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
