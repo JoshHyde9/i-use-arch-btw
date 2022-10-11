@@ -1,5 +1,21 @@
 @use "./partials/global" as *;
 @use "./partials/util" as *;
+@use "./partials/variables" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 40px;
+  background-color: $background-primary;
+  color: #fff;
+
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+  }
+}
 
 .display {
   flex: 1;
@@ -10,11 +26,16 @@
   min-height: 70px;
   display: flex;
   justify-content: center;
+  transition: all 200ms;
 
   .dock {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    padding: 0 1rem;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
