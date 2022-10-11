@@ -1,6 +1,7 @@
 const desktop = document.querySelector(".desktop");
 
 const firefoxIcon = document.querySelector(".icon--firefox");
+const VSCodeIcon = document.querySelector(".icon--vs-code");
 
 const createWindow = (data) => {
   // Create a new window
@@ -53,6 +54,7 @@ const createWindow = (data) => {
   return window;
 };
 
+// Firefox
 firefoxIcon.addEventListener("click", () => {
   const data = { title: "Firefox" };
   const window = createWindow(data);
@@ -66,4 +68,19 @@ firefoxIcon.addEventListener("click", () => {
     "https://www.youtube.com/embed/dEvZ2PSqk3E?start=13&autoplay=1"
   );
   windowBody.appendChild(chungy);
+});
+
+// VS Code
+VSCodeIcon.addEventListener("click", () => {
+  const data = { title: "Visual Studio Code" };
+  const window = createWindow(data);
+
+  const editor = document.createElement("div");
+  editor.setAttribute("id", "editor");
+  const windowBody = window.querySelector(".window__body");
+  windowBody.appendChild(editor);
+
+  var epic = ace.edit("editor");
+  epic.setTheme("ace/theme/one_dark");
+  epic.session.setMode("ace/mode/javascript");
 });
