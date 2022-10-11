@@ -41,6 +41,10 @@ body {
   opacity: 1 !important;
 }
 
+.hidden {
+  display: none;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -72,8 +76,71 @@ body {
   background-color: #352c39;
 }
 
-.display {
+.desktop {
   flex: 1;
+}
+.desktop .window {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+.desktop .window__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1rem;
+  height: 2rem;
+  background-color: #27212a;
+  font-size: 1.3rem;
+}
+.desktop .window__title h1 {
+  font-size: 1.25rem;
+  color: #fff;
+}
+.desktop .window__title :last-child {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.desktop .window__title :last-child div {
+  margin: 0 0.25rem;
+  border-radius: 100%;
+  background-color: #352c39;
+}
+.desktop .window__title :last-child div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.desktop .window__title :last-child div button {
+  padding: 0.75rem;
+  margin: 0 5px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.desktop .window__title :last-child div button#minimise {
+  margin-top: 5px;
+  background: url("/assets/svg/buttons/minus.svg") no-repeat center;
+}
+.desktop .window__title :last-child div button#maximise {
+  background: url("/assets/svg/buttons/maximize.svg") no-repeat center;
+}
+.desktop .window__title :last-child div button#close {
+  background: url("/assets/svg/buttons/x.svg") no-repeat center;
+}
+.desktop .window__title :last-child div button#minimise:hover, .desktop .window__title :last-child div button#maximise:hover, .desktop .window__title :last-child div button#close:hover {
+  cursor: default;
+}
+.desktop .window__body {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+}
+.desktop .window__body iframe {
+  width: 100%;
+  height: 98%;
+  border: 0;
 }
 
 .footer {
@@ -82,14 +149,32 @@ body {
   display: flex;
   justify-content: center;
   transition: all 200ms;
+  position: relative;
+  z-index: 9999999;
 }
 .footer .dock {
+  position: relative;
+  z-index: 9999999;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   padding: 0 1rem;
-  border: 1px solid #fff;
+  border: 1px solid rgb(127, 127, 127);
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+}
+.footer .dock .icon {
+  transition: all ease-in-out 200ms;
+  border-radius: 15px;
+}
+.footer .dock .icon img {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer .dock .icon:hover {
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0.1);
 }
