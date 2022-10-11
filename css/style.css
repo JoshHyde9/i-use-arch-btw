@@ -84,7 +84,6 @@ body {
   flex-direction: column;
   height: 100vh;
   position: relative;
-  z-index: 1;
 }
 .desktop .window__title {
   display: flex;
