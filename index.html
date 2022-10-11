@@ -21,30 +21,31 @@
       <ul class="nav-list">
         <li id="language" class="nav-list__item">En</li>
         <li class="nav-list__item">
-          <img src="./assets/svg/wifi.svg" alt="wifi" />
+          <img src="./assets/svg/polybar/wifi.svg" alt="wifi" />
         </li>
         <li class="nav-list__item">
-          <img src="./assets/svg/volume-2.svg" alt="sound" />
+          <img src="./assets/svg/polybar/volume-2.svg" alt="sound" />
         </li>
         <li class="nav-list__item">
-          <img src="./assets/svg/power.svg" alt="power" />
+          <img src="./assets/svg/polybar/power.svg" alt="power" />
         </li>
       </ul>
     </nav>
 
-    <section class="display">
-      <div>Content goes here</div>
-    </section>
+    <section class="desktop"></section>
 
     <footer id="footer" class="footer">
       <div class="dock">
-        <div class="icon">Firefox</div>
+        <div class="icon icon--firefox">
+          <img src="./assets/svg/dockIcons/Firefox Browser logo.svg" />
+        </div>
         <div class="icon">VS Code</div>
         <div class="icon">Terminal</div>
         <div class="icon">Slack</div>
         <div class="icon">MS Teams</div>
       </div>
     </footer>
-    <script src="./js/index.js"></script>
+    <script type="module" src="./js/index.mjs"></script>
+    <script type="module" src="./js/dockIcons.mjs"></script>
   </body>
 </html>
