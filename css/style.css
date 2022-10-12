@@ -155,13 +155,13 @@ body {
 }
 .desktop .window__title :last-child div button#minimise {
   margin-top: 5px;
-  background: url("/assets/svg/buttons/minus.svg") no-repeat center;
+  background: url("../../assets/svg/buttons/minus.svg") no-repeat center;
 }
 .desktop .window__title :last-child div button#maximise {
-  background: url("/assets/svg/buttons/maximize.svg") no-repeat center;
+  background: url("../../assets/svg/buttons/maximize.svg") no-repeat center;
 }
 .desktop .window__title :last-child div button#close {
-  background: url("/assets/svg/buttons/x.svg") no-repeat center;
+  background: url("../../assets/svg/buttons/x.svg") no-repeat center;
 }
 .desktop .window__title :last-child div button#minimise:hover, .desktop .window__title :last-child div button#maximise:hover, .desktop .window__title :last-child div button#close:hover {
   cursor: default;
