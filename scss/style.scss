@@ -49,8 +49,7 @@
   .window {
     display: flex;
     flex-direction: column;
-    position: relative;
-    z-index: 2;
+    position: absolute;
 
     &__title {
       display: flex;
@@ -60,6 +59,8 @@
       height: 2rem;
       background-color: lighten($color: $background-primary, $amount: 5);
       font-size: 1.3rem;
+      position: relative;
+      z-index: 2;
 
       h1 {
         font-size: 1.25rem;
@@ -115,6 +116,7 @@
       background-color: #fff;
       height: 100%;
       width: 100%;
+      position: relative;
 
       #editor {
         width: 100%;
@@ -124,7 +126,7 @@
 
       iframe {
         width: 100%;
-        height: calc(100% - 2%);
+        height: 100%;
         border: 0;
       }
     }
@@ -138,11 +140,11 @@
   justify-content: center;
   transition: all 200ms;
   position: relative;
-  z-index: 9999999;
+  z-index: 10;
 
   .dock {
     position: relative;
-    z-index: 9999999;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,4 +175,16 @@
       }
     }
   }
+}
+
+.resizable {
+  position: relative;
+}
+.resizer {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
 }

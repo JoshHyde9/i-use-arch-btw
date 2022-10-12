@@ -1,3 +1,5 @@
+import { dragMoveListener } from "./windowFunctions.mjs";
+
 const desktop = document.querySelector(".desktop");
 
 const firefoxIcon = document.querySelector(".icon--firefox");
@@ -11,20 +13,22 @@ const randomId = () => {
 };
 
 const createWindow = (data) => {
-  // Create a new window
-  const window = document.createElement("div");
-  window.classList.add("window");
-
-  window.style.width = data.width;
-  window.style.height = data.height;
-
+  // Create a random id
   const id = randomId();
 
-  desktop.appendChild(window);
+  // Create a new window
+  const newWindow = document.createElement("div");
+  newWindow.classList.add("window");
+  newWindow.classList.add(`window--${id}`);
+
+  newWindow.style.width = data.width;
+  newWindow.style.height = data.height;
+
+  desktop.appendChild(newWindow);
 
   // Create the top bar that contains the title and window buttons
-  const windowTopBar = document.createElement("div");
-  window.appendChild(windowTopBar);
+  const windowTopBar = document.createElement("header");
+  newWindow.appendChild(windowTopBar);
   windowTopBar.classList.add("window");
   windowTopBar.classList.add("window__title");
   windowTopBar.classList.add(`window__title--${id}`);
@@ -48,22 +52,22 @@ const createWindow = (data) => {
     button.addEventListener("click", (event) => {
       switch (event.target.value) {
         case "close":
-          window.remove();
+          newWindow.remove();
           break;
         case "maximise":
-          if (window.style.width === "100%") {
-            window.style.width = "50%";
-            window.style.height = "50%";
+          if (newWindow.style.width === "100%") {
+            newWindow.style.width = "50%";
+            newWindow.style.height = "50%";
             break;
           }
-          window.style.width = "100%";
-          window.style.height = "100vh";
+          newWindow.style.width = "100%";
+          newWindow.style.height = "100vh";
           break;
         case "minimise":
-          window.style.position = "absolute";
-          window.style.bottom = "1px";
-          window.style.height = 0;
-          window.style.widows = 0;
+          newWindow.style.position = "absolute";
+          newWindow.style.bottom = "10px";
+          newWindow.style.height = 0;
+          newWindow.style.widows = 0;
         default:
           break;
       }
@@ -75,12 +79,43 @@ const createWindow = (data) => {
 
   // Add the rest of the window
   const body = document.createElement("div");
-  window.appendChild(body);
+  newWindow.appendChild(body);
   body.classList.add("window");
   body.classList.add("window__body");
   body.classList.add(`window__body--${id}`);
 
-  return { window, id };
+  const currentWindow = document.querySelector(`.window--${id}`);
+
+  // Resort to using a library because I could not get it to work
+  interact(currentWindow)
+    .draggable({
+      onmove: window.dragMoveListener,
+    })
+    .resizable({
+      preserveAspectRatio: false,
+      edges: { left: true, right: true, bottom: true, top: true },
+    })
+    .on("resizemove", function (event) {
+      var target = event.target,
+        x = parseFloat(target.getAttribute("data-x")) || 0,
+        y = parseFloat(target.getAttribute("data-y")) || 0;
+
+      // update the element's style
+      target.style.width = event.rect.width + "px";
+      target.style.height = event.rect.height + "px";
+
+      // translate when resizing from top or left edges
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+
+      target.style.webkitTransform = target.style.transform =
+        "translate(" + x + "px," + y + "px)";
+
+      target.setAttribute("data-x", x);
+      target.setAttribute("data-y", y);
+    });
+
+  return { window: newWindow, id };
 };
 
 // Firefox
@@ -104,14 +139,14 @@ VSCodeIcon.addEventListener("click", () => {
   const data = { title: "Visual Studio Code", width: "100%", height: "100vh" };
   const { window, id } = createWindow(data);
 
-  const editor = document.createElement("div");
-  editor.setAttribute("id", "editor");
+  const editorContainer = document.createElement("div");
+  editorContainer.setAttribute("id", "editor");
   const windowBody = window.querySelector(`.window__body--${id}`);
-  windowBody.appendChild(editor);
+  windowBody.appendChild(editorContainer);
 
-  var epic = ace.edit("editor");
-  epic.setTheme("ace/theme/one_dark");
-  epic.session.setMode("ace/mode/javascript");
+  const editor = ace.edit("editor");
+  editor.setTheme("ace/theme/one_dark");
+  editor.session.setMode("ace/mode/javascript");
 });
 
 // Terminal
@@ -176,6 +211,7 @@ terminalIcon.addEventListener("click", () => {
   inputLine.appendChild(input).focus();
 
   windowBody.addEventListener("keyup", (event) => {
+    // Create a new line if the enter key is pressed
     if (event.keyCode === 13) {
       const inputLine = document.createElement("div");
       inputLine.classList.add("input-line");
