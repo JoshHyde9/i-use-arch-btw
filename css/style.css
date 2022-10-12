@@ -8,11 +8,10 @@ body {
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: url("../../assets/img/background.png");
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "DejaVu Sans Mono", sans-serif;
@@ -46,8 +45,9 @@ body {
 }
 
 .rice-bg {
-  font-size: 1.25rem;
+  font-size: 100%;
   background-color: rgba(100, 47, 83, 0.5) !important;
+  overflow-y: scroll;
 }
 
 .command {
@@ -110,12 +110,14 @@ body {
 
 .desktop {
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 .desktop .window {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   position: relative;
+  z-index: 2;
 }
 .desktop .window__title {
   display: flex;

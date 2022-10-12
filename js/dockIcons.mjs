@@ -4,10 +4,22 @@ const firefoxIcon = document.querySelector(".icon--firefox");
 const VSCodeIcon = document.querySelector(".icon--vs-code");
 const terminalIcon = document.querySelector(".icon--terminal");
 
+const randomId = () => {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+};
+
 const createWindow = (data) => {
   // Create a new window
   const window = document.createElement("div");
   window.classList.add("window");
+
+  window.style.width = data.width;
+  window.style.height = data.height;
+
+  const id = randomId();
+
   desktop.appendChild(window);
 
   // Create the top bar that contains the title and window buttons
@@ -15,7 +27,8 @@ const createWindow = (data) => {
   window.appendChild(windowTopBar);
   windowTopBar.classList.add("window");
   windowTopBar.classList.add("window__title");
-  const titleDiv = document.querySelector(".window__title");
+  windowTopBar.classList.add(`window__title--${id}`);
+  const titleDiv = document.querySelector(`.window__title--${id}`);
 
   // Add the title to the top bar
   const titleHeading = document.createElement("h1");
@@ -37,6 +50,20 @@ const createWindow = (data) => {
         case "close":
           window.remove();
           break;
+        case "maximise":
+          if (window.style.width === "100%") {
+            window.style.width = "50%";
+            window.style.height = "50%";
+            break;
+          }
+          window.style.width = "100%";
+          window.style.height = "100vh";
+          break;
+        case "minimise":
+          window.style.position = "absolute";
+          window.style.bottom = "1px";
+          window.style.height = 0;
+          window.style.widows = 0;
         default:
           break;
       }
@@ -51,16 +78,17 @@ const createWindow = (data) => {
   window.appendChild(body);
   body.classList.add("window");
   body.classList.add("window__body");
+  body.classList.add(`window__body--${id}`);
 
-  return window;
+  return { window, id };
 };
 
 // Firefox
 firefoxIcon.addEventListener("click", () => {
-  const data = { title: "Firefox" };
-  const window = createWindow(data);
+  const data = { title: "Firefox", width: "50%", height: "100vh" };
+  const { window, id } = createWindow(data);
 
-  const windowBody = window.querySelector(".window__body");
+  const windowBody = window.querySelector(`.window__body--${id}`);
 
   // Add Chungy to Firefox window
   const chungy = document.createElement("iframe");
@@ -73,12 +101,12 @@ firefoxIcon.addEventListener("click", () => {
 
 // VS Code
 VSCodeIcon.addEventListener("click", () => {
-  const data = { title: "Visual Studio Code" };
-  const window = createWindow(data);
+  const data = { title: "Visual Studio Code", width: "100%", height: "100vh" };
+  const { window, id } = createWindow(data);
 
   const editor = document.createElement("div");
   editor.setAttribute("id", "editor");
-  const windowBody = window.querySelector(".window__body");
+  const windowBody = window.querySelector(`.window__body--${id}`);
   windowBody.appendChild(editor);
 
   var epic = ace.edit("editor");
@@ -88,11 +116,12 @@ VSCodeIcon.addEventListener("click", () => {
 
 // Terminal
 terminalIcon.addEventListener("click", () => {
-  const data = { title: "Terminal" };
-  const window = createWindow(data);
+  const data = { title: "Terminal", width: "45%", height: "35%" };
+  const { window, id } = createWindow(data);
 
-  const windowBody = window.querySelector(".window__body");
+  const windowBody = window.querySelector(`.window__body--${id}`);
   windowBody.classList.add("rice-bg");
+  windowBody.classList.add(`rice-bg--${id}`);
 
   const command = document.createElement("div");
   command.classList.add("command");

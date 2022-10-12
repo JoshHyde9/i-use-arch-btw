@@ -43,12 +43,14 @@
 
 .desktop {
   flex: 1;
+  position: relative;
+  z-index: 1;
 
   .window {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     position: relative;
+    z-index: 2;
 
     &__title {
       display: flex;

@@ -10,8 +10,9 @@
 }
 
 .rice-bg {
-  font-size: 1.25rem;
+  font-size: 100%;
   background-color: rgba($color: #642f53, $alpha: 0.5) !important;
+  overflow-y: scroll;
 }
 
 .command {
