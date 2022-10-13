@@ -57,10 +57,6 @@ body {
   color: #26a269;
 }
 
-.ascii {
-  color: #1793d1;
-}
-
 .terminal-input {
   background: transparent;
   border: none;
@@ -171,6 +167,27 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
+}
+.desktop .window__body .system-data {
+  display: flex;
+  gap: 2rem;
+  color: white;
+}
+.desktop .window__body .system-data--ascii {
+  color: #1793d1;
+}
+.desktop .window__body .system-data__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.desktop .window__body .system-data__info--item {
+  display: flex;
+  gap: 0;
+  flex-direction: row;
+}
+.desktop .window__body .system-data__info--item .info-title {
+  color: #1793d1;
 }
 .desktop .window__body #editor {
   width: 100%;
