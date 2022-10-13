@@ -166,8 +166,50 @@ terminalIcon.addEventListener("click", () => {
 
   const info = document.createElement("div");
   const asciiArt = document.createElement("pre");
-  asciiArt.classList.add("ascii");
+
+  asciiArt.classList.add("system-data");
+  asciiArt.classList.add("system-data--ascii");
+
   info.appendChild(asciiArt);
+
+  info.classList.add("system-data");
+
+  const systemInfoDiv = document.createElement("div");
+  info.appendChild(systemInfoDiv);
+
+  systemInfoDiv.classList.add("system-data");
+  systemInfoDiv.classList.add("system-data__info");
+
+  const { platform, userAgent, language, onLine, hardwareConcurrency } =
+    navigator;
+
+  const SYSTEM_INFO = {
+    OS: platform,
+    Agent: userAgent,
+    Language: language,
+    Online: onLine,
+    CPUThreads: hardwareConcurrency,
+  };
+
+  // Iterate over the object
+  Object.keys(SYSTEM_INFO).map((key) => {
+    const container = document.createElement("div");
+    systemInfoDiv.appendChild(container);
+    container.classList.add("system-data");
+    container.classList.add("system-data__info");
+    container.classList.add("system-data__info--item");
+
+    const systemInfoTitle = document.createElement("span");
+    const systemInfoP = document.createElement("p");
+
+    systemInfoTitle.classList.add("info-title");
+
+    container.appendChild(systemInfoTitle);
+    container.appendChild(systemInfoP);
+
+    systemInfoTitle.innerText = key;
+    systemInfoP.innerText = `: ${SYSTEM_INFO[key]}`;
+  });
 
   asciiArt.innerText = `  
                   ##
