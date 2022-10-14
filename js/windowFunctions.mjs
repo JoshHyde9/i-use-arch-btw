@@ -12,5 +12,3 @@ export const dragMoveListener = (event) => {
   target.setAttribute("data-x", x);
   target.setAttribute("data-y", y);
 };
-
-window.dragMoveListener = dragMoveListener;

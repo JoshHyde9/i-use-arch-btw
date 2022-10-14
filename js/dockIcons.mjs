@@ -93,7 +93,7 @@ const createWindow = (data) => {
   // Resort to using a library because I could not get it to work
   interact(currentWindow)
     .draggable({
-      onmove: window.dragMoveListener,
+      onmove: dragMoveListener,
     })
     .resizable({
       preserveAspectRatio: false,
