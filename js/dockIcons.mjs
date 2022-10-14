@@ -68,10 +68,9 @@ const createWindow = (data) => {
           newWindow.style.height = `calc(${window.innerHeight}px - 20px)`;
           break;
         case "minimise":
-          newWindow.style.position = "absolute";
-          newWindow.style.bottom = "100px";
-          newWindow.style.height = "10px";
-          newWindow.style.width = "10px";
+          newWindow.style.bottom = 0;
+          newWindow.style.height = 0;
+          newWindow.style.width = 0;
         default:
           break;
       }
@@ -82,13 +81,21 @@ const createWindow = (data) => {
   titleDiv.appendChild(buttons);
 
   // Add the rest of the window
-  const body = document.createElement("div");
+  const body = document.createElement("section");
   newWindow.appendChild(body);
   body.classList.add("window");
   body.classList.add("window__body");
   body.classList.add(`window__body--${id}`);
 
   const currentWindow = document.querySelector(`.window--${id}`);
+
+  // Inc z index when the window is clicked on
+  currentWindow.addEventListener("click", () => {
+    let currentIndex = currentWindow.style.zIndex;
+
+    currentIndex = Number(currentIndex) + 1;
+    currentWindow.style.zIndex = currentIndex;
+  });
 
   // Resort to using a library because I could not get it to work
   interact(currentWindow)
