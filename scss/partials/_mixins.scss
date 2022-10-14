@@ -1,0 +1,12 @@
+@mixin icon-hover($icon-name) {
+  &:hover::after {
+    position: absolute;
+    top: -20px;
+    border: 1px solid rgb(127, 127, 127);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0 0.75rem;
+    content: $icon-name;
+  }
+}
