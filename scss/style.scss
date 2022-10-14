@@ -125,6 +125,31 @@
         gap: 2rem;
         color: white;
 
+        &__input-line {
+          display: flex;
+          align-items: center;
+          gap: 0;
+
+          &--command {
+            color: #fff;
+            &::first-letter {
+              color: #26a269;
+            }
+          }
+
+          &--terminal-input {
+            background: transparent;
+            border: none;
+            color: #fff;
+          }
+
+          input {
+            outline: none;
+            flex-grow: 1;
+            margin-left: 1rem;
+          }
+        }
+
         &--ascii {
           color: #1793d1;
         }

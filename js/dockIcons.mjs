@@ -163,7 +163,7 @@ terminalIcon.addEventListener("click", () => {
   windowBody.classList.add(`rice-bg--${id}`);
 
   const command = document.createElement("div");
-  command.classList.add("command");
+  command.classList.add("system-data__input-line--command");
   windowBody.appendChild(command);
 
   command.innerText = "➜  ~ neofetch";
@@ -239,10 +239,11 @@ terminalIcon.addEventListener("click", () => {
 
   // Create a new input line
   const inputLine = document.createElement("div");
-  inputLine.classList.add("input-line");
+  inputLine.classList.add("system-data");
+  inputLine.classList.add("system-data__input-line");
   // Create a new command info line
   const newCommand = document.createElement("div");
-  newCommand.classList.add("command");
+  newCommand.classList.add("system-data__input-line--command");
   // Add the new command to the input
   inputLine.appendChild(newCommand);
   // Add the input line to the window
@@ -251,7 +252,9 @@ terminalIcon.addEventListener("click", () => {
   newCommand.innerText = "➜  ~";
 
   const input = document.createElement("input");
-  input.classList.add("terminal-input");
+  input.classList.add("system-data");
+  input.classList.add("system-data__input-line");
+  input.classList.add("system-data__input-line--terminal-input");
 
   // Appendd the input to the input line
   inputLine.appendChild(input).focus();
@@ -260,10 +263,11 @@ terminalIcon.addEventListener("click", () => {
     // Create a new line if the enter key is pressed
     if (event.keyCode === 13) {
       const inputLine = document.createElement("div");
-      inputLine.classList.add("input-line");
+      inputLine.classList.add("system-data");
+      inputLine.classList.add("system-data__input-line");
 
       const newCommand = document.createElement("div");
-      newCommand.classList.add("command");
+      newCommand.classList.add("system-data__input-line--command");
 
       inputLine.appendChild(newCommand);
 
@@ -272,7 +276,7 @@ terminalIcon.addEventListener("click", () => {
       newCommand.innerText = "➜  ~";
 
       const newInput = document.createElement("input");
-      newInput.classList.add("terminal-input");
+      newInput.classList.add("system-data__input-line--terminal-input");
       inputLine.appendChild(newInput).focus();
     }
   });

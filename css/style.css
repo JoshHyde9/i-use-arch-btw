@@ -50,29 +50,6 @@ body {
   overflow-y: scroll;
 }
 
-.command {
-  color: #fff;
-}
-.command::first-letter {
-  color: #26a269;
-}
-
-.terminal-input {
-  background: transparent;
-  border: none;
-  color: #fff;
-}
-
-.input-line {
-  display: flex;
-  align-items: center;
-}
-.input-line input {
-  margin-left: 1rem;
-  outline: none;
-  flex-grow: 1;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -173,6 +150,27 @@ body {
   display: flex;
   gap: 2rem;
   color: white;
+}
+.desktop .window__body .system-data__input-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.desktop .window__body .system-data__input-line--command {
+  color: #fff;
+}
+.desktop .window__body .system-data__input-line--command::first-letter {
+  color: #26a269;
+}
+.desktop .window__body .system-data__input-line--terminal-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+.desktop .window__body .system-data__input-line input {
+  outline: none;
+  flex-grow: 1;
+  margin-left: 1rem;
 }
 .desktop .window__body .system-data--ascii {
   color: #1793d1;
