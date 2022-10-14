@@ -81,6 +81,7 @@ body {
   padding: 0.2rem 1rem;
   background-color: #1a161c;
   color: #fff;
+  cursor: default;
 }
 .nav .nav-list {
   list-style-type: none;
