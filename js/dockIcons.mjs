@@ -268,7 +268,7 @@ terminalIcon.addEventListener("click", () => {
 
   windowBody.addEventListener("keyup", (event) => {
     // Create a new line if the enter key is pressed
-    if (event.keyCode === 13) {
+    if (event.key === "Enter") {
       const inputLine = document.createElement("div");
       inputLine.classList.add("system-data");
       inputLine.classList.add("system-data__input-line");
