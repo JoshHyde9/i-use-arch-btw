@@ -66,3 +66,29 @@ getDate();
 const language = document.getElementById("language");
 const systemLang = navigator.language;
 language.innerText = systemLang;
+
+// Open all windows if the "activities" button is pressed
+const activitiesButton = document.getElementById("activities");
+
+activitiesButton.addEventListener("click", () => {
+  const windows = document.querySelectorAll("div.window");
+
+  // Don't do anything if there are no windows
+  if (windows.length === 0) {
+    return;
+  }
+
+  windows.forEach((windowElement) => {
+    if (windowElement.getBoundingClientRect().width < 200) {
+      windowElement.style.width = "700px";
+      windowElement.style.height = "400px";
+    }
+    document.body.classList.add("scale");
+    windowElement.style.scale = "75%";
+
+    windowElement.addEventListener("click", () => {
+      windowElement.style.scale = "100%";
+      document.body.classList.remove("scale");
+    });
+  });
+});
