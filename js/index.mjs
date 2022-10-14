@@ -78,6 +78,12 @@ activitiesButton.addEventListener("click", () => {
     return;
   }
 
+  window.addEventListener("keyup", (event) => {
+    if (event.key === "Escape") {
+      document.body.classList.remove("scale");
+    }
+  });
+
   windows.forEach((windowElement) => {
     if (windowElement.getBoundingClientRect().width < 200) {
       windowElement.style.width = "700px";
