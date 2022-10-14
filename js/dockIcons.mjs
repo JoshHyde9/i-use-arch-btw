@@ -64,9 +64,8 @@ const createWindow = (data) => {
 
           newWindow.style.top = 0;
           newWindow.style.left = 0;
-          newWindow.style.position = "absolute";
           newWindow.style.width = `${window.innerWidth}px`;
-          newWindow.style.height = `${window.innerHeight}px`;
+          newWindow.style.height = `calc(${window.innerHeight}px - 20px)`;
           break;
         case "minimise":
           newWindow.style.position = "absolute";
