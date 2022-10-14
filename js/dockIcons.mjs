@@ -55,19 +55,24 @@ const createWindow = (data) => {
           newWindow.remove();
           break;
         case "maximise":
-          if (newWindow.style.width === "100%") {
+          // If the window size is already at the max size, make it smaller
+          if (newWindow.style.width === `${window.innerWidth}px`) {
             newWindow.style.width = "50%";
             newWindow.style.height = "50%";
             break;
           }
-          newWindow.style.width = "100%";
-          newWindow.style.height = "100vh";
+
+          newWindow.style.top = 0;
+          newWindow.style.left = 0;
+          newWindow.style.position = "absolute";
+          newWindow.style.width = `${window.innerWidth}px`;
+          newWindow.style.height = `${window.innerHeight}px`;
           break;
         case "minimise":
           newWindow.style.position = "absolute";
-          newWindow.style.bottom = "10px";
-          newWindow.style.height = 0;
-          newWindow.style.widows = 0;
+          newWindow.style.bottom = "100px";
+          newWindow.style.height = "10px";
+          newWindow.style.width = "10px";
         default:
           break;
       }
