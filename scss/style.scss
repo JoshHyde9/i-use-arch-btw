@@ -185,6 +185,32 @@
       }
     }
   }
+
+  &__menu {
+    background-color: rgba($color: $background-primary, $alpha: 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+
+    &-grid {
+      display: flex;
+      padding: 1rem;
+      gap: 1rem;
+
+      &--item {
+        .icon {
+          img {
+            display: block;
+            width: auto;
+            height: 80%;
+          }
+        }
+      }
+    }
+  }
 }
 
 .footer {
