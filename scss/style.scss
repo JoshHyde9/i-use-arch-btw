@@ -205,7 +205,24 @@
           img {
             display: block;
             width: auto;
-            height: 80%;
+            height: 70%;
+            position: relative;
+          }
+          &--firefox::after {
+            content: "Firefox";
+          }
+          &--vs-code::after {
+            content: "VS Code";
+          }
+          &--terminal::after {
+            content: "Terminal";
+          }
+          &::after {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+            color: #fff;
           }
         }
       }

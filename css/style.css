@@ -222,7 +222,24 @@ body {
 .desktop__menu-grid--item .icon img {
   display: block;
   width: auto;
-  height: 80%;
+  height: 70%;
+  position: relative;
+}
+.desktop__menu-grid--item .icon--firefox::after {
+  content: "Firefox";
+}
+.desktop__menu-grid--item .icon--vs-code::after {
+  content: "VS Code";
+}
+.desktop__menu-grid--item .icon--terminal::after {
+  content: "Terminal";
+}
+.desktop__menu-grid--item .icon::after {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
 }
 
 .footer {
