@@ -205,6 +205,25 @@ body {
   height: 100%;
   border: 0;
 }
+.desktop__menu {
+  background-color: rgba(26, 22, 28, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+}
+.desktop__menu-grid {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+.desktop__menu-grid--item .icon img {
+  display: block;
+  width: auto;
+  height: 80%;
+}
 
 .footer {
   opacity: 0;
