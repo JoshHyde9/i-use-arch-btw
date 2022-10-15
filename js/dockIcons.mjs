@@ -5,6 +5,7 @@ const desktop = document.querySelector(".desktop");
 const firefoxIcon = document.querySelector(".icon--firefox");
 const VSCodeIcon = document.querySelector(".icon--vs-code");
 const terminalIcon = document.querySelector(".icon--terminal");
+const applicationIcon = document.querySelector(".icon--applications");
 
 const randomId = () => {
   return Math.floor((1 + Math.random()) * 0x10000)
@@ -13,6 +14,13 @@ const randomId = () => {
 };
 
 const createWindow = (data) => {
+  // Close the menu on app open
+  const menu = document.querySelector("section.desktop__menu");
+
+  if (menu) {
+    menu.remove();
+  }
+
   // Create a random id
   const id = randomId();
 
@@ -287,4 +295,49 @@ terminalIcon.addEventListener("click", () => {
       inputLine.appendChild(newInput).focus();
     }
   });
+});
+
+// Applications
+applicationIcon.addEventListener("click", () => {
+  const doesMenuExist = document.querySelector("section.desktop__menu");
+
+  if (doesMenuExist) {
+    doesMenuExist.remove();
+    return;
+  }
+
+  const menu = document.createElement("section");
+
+  menu.classList.add("desktop__menu");
+
+  const menuIcons = document.createElement("div");
+  menuIcons.classList.add("desktop__menu-grid");
+
+  document.body.addEventListener("keyup", (event) => {
+    if (event.key === "Escape") menu.remove();
+  });
+
+  // Get all of the icons on the dock and put into the menu
+  const icons = document.querySelectorAll(".icon");
+
+  const cleanedIcons = [];
+  icons.forEach((icon) => {
+    if (icon.classList.contains("icon--applications")) return; // Don't add the application icon
+
+    cleanedIcons.push(icon);
+  });
+
+  cleanedIcons.forEach((icon) => {
+    const copyOfIcon = icon.cloneNode(true); // Copy the element
+
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("desktop__menu-grid");
+    gridItem.classList.add("desktop__menu-grid--item");
+
+    gridItem.appendChild(copyOfIcon);
+    menuIcons.appendChild(gridItem);
+  });
+
+  menu.appendChild(menuIcons);
+  desktop.appendChild(menu);
 });
