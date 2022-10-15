@@ -255,9 +255,28 @@ body {
   content: "Visual Studio Code";
 }
 .footer .dock .icon--vs-code:hover::after {
-  left: 50%;
+  left: 40%;
   transform: translateX(-50%);
   width: 60%;
+  text-align: center;
+}
+.footer .dock .icon--applications {
+  width: 30%;
+}
+.footer .dock .icon--applications:hover::after {
+  position: absolute;
+  top: -20px;
+  border: 1px solid rgb(127, 127, 127);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0 0.75rem;
+  content: "Applications";
+}
+.footer .dock .icon--applications:hover::after {
+  right: 10%;
+  transform: translateX(30%);
+  width: 40%;
   text-align: center;
 }
 .footer .dock .icon--terminal {
